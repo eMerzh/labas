@@ -2,6 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Link from "next/link";
 import GenericList from "../../Components/GenericList";
 import SchoolList from "../../Components/SchoolList";
+import Map from "../../Components/Map";
 import { query } from "../../lib/fetch-overpass";
 import { AllLists } from "../../lib/type-list";
 
@@ -38,7 +39,7 @@ const ItemsList: NextPage = ({ items, listDefinition }: InferGetStaticPropsType<
         innerTable = <GenericList items={items} {...listDefinition.props} />
     }
 
-    return <>
+    return <div className="page-container">
         <h1 className="category">
             <Link href="/">«</Link> {listDefinition.name} in {city}
         </h1>
@@ -50,7 +51,9 @@ const ItemsList: NextPage = ({ items, listDefinition }: InferGetStaticPropsType<
             en début de ligne pour modifier ce qui doit l'être...
         </div>
         {innerTable}
-    </>
+        <Map items={items} initialLat={50.683627} initialLon={4.3749516} />
+        {/* FIXME:  change hardcoded city lat-lon*/}
+    </div>
 
 }
 

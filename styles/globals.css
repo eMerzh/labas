@@ -30,11 +30,13 @@ a:hover {
 * {
   box-sizing: border-box;
 }
+.page-container {
+  margin: auto;
+  max-width: 1200px;
+}
 
 h1.category {
-  margin: auto;
   color: white;
-  max-width: 1200px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -78,6 +80,23 @@ main > div {
   font-weight: 600;
   font-size: 12px;
   margin: 0.25em 0.1em;
+}
+
+.map-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 100px;
+  height: calc(
+    100vh - 77px
+  ); /* calculate height of the screen minus the heading */
+}
+
+.map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
 }
 
 /*** Table Styles **/
