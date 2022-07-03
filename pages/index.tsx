@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <div>
           <h1>
             Ici ou Là-bas...
-            in Braine-l&apos;Alleud
+            à Braine-l&apos;Alleud
           </h1>
           <ul>
             {AllLists.map(listItem => {
