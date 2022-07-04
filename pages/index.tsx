@@ -1,8 +1,7 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import { AllLists } from '../lib/type-list'
-
+import type { NextPage } from "next";
+import Head from "next/head";
+import Link from "next/link";
+import { AllLists } from "../lib/type-list";
 
 const Home: NextPage = () => {
   return (
@@ -15,25 +14,20 @@ const Home: NextPage = () => {
 
       <main>
         <div>
-          <h1>
-            Ici ou Là-bas...
-            à Braine-l&apos;Alleud
-          </h1>
+          <h1>Ici ou Là-bas... à Braine-l&apos;Alleud</h1>
           <ul>
-            {AllLists.map(listItem => {
+            {AllLists.map((listItem) => {
               return (
                 <li key={listItem.slug} className="pages-link">
-                  <Link href={`/list/${listItem.slug}`}>
-                    {listItem.name}
-                  </Link>
-                </li>)
+                  <Link href={`/list/${listItem.slug}`}>{listItem.name}</Link>
+                </li>
+              );
             })}
-
           </ul>
         </div>
       </main>
-    </>)
+    </>
+  );
+};
 
-}
-
-export default Home
+export default Home;

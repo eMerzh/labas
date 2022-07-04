@@ -33,6 +33,7 @@ a:hover {
 .page-container {
   margin: auto;
   max-width: 1200px;
+  padding-bottom: 50px;
 }
 
 h1.category {
@@ -46,10 +47,13 @@ h1.category a {
 
 .category-head {
   margin: auto;
-  color: #d7d7d7;
+  color: white;
   max-width: 1180px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+.category-head code {
+  color: #ff9393;
 }
 main {
   display: flex;
@@ -86,7 +90,7 @@ main > div {
   position: relative;
   width: 100%;
   padding-top: 30px;
-  padding-bottom: 100px;
+  padding-bottom: 30px;
   height: calc(
     100vh - 77px
   ); /* calculate height of the screen minus the heading */
@@ -99,6 +103,11 @@ main > div {
   border-radius: 3px;
 }
 
+footer {
+  font-size: small;
+  color: #70acbf;
+  text-align: center;
+}
 /*** Table Styles **/
 
 .table-fill {
