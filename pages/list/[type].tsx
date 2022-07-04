@@ -61,6 +61,10 @@ const ItemsList: NextPage = ({
         Les tableaux et les cartes ci-dessus sont générés a partir de la base de
         données collaborative OpenStreetMap. Compléter les données
         d'Openstreetmap c'est aussi améliorer ces listes.
+        <br />
+        <a href="https://github.com/eMerzh/labas">
+          https://github.com/eMerzh/labas
+        </a>
       </footer>
     </div>
   );
