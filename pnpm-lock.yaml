@@ -8,6 +8,7 @@ specifiers:
   eslint-config-next: 12.2.0
   maplibre-gl: ^2.1.9
   next: 12.2.0
+  next-use-posthog: ^1.16.0
   opening_hours: ^3.8.0
   react: 18.2.0
   react-dom: 18.2.0
@@ -16,6 +17,7 @@ specifiers:
 dependencies:
   maplibre-gl: 2.1.9
   next: 12.2.0_biqbaboplfbrettd7655fr4n2y
+  next-use-posthog: 1.16.0_react@18.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -268,6 +270,11 @@ packages:
   /@rushstack/eslint-patch/1.1.4:
     resolution: {integrity: sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==}
     dev: true
+
+  /@sentry/types/6.19.7:
+    resolution: {integrity: sha512-jH84pDYE+hHIbVnab3Hr+ZXr1v8QABfhx39KknxqKWr2l0oEItzepV0URvbEhB446lk/S/59230dlUUIBGsXbg==}
+    engines: {node: '>=6'}
+    dev: false
 
   /@swc/helpers/0.4.2:
     resolution: {integrity: sha512-556Az0VX7WR6UdoTn4htt/l3zPQ7bsQWK+HqdG4swV7beUCxo/BqmvbOpUkTIm/9ih86LIf1qsUnywNL3obGHw==}
@@ -988,6 +995,10 @@ packages:
       reusify: 1.0.4
     dev: true
 
+  /fflate/0.4.8:
+    resolution: {integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==}
+    dev: false
+
   /file-entry-cache/6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -1475,6 +1486,15 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
+  /next-use-posthog/1.16.0_react@18.2.0:
+    resolution: {integrity: sha512-nEv+0c/m06/uImJTZ8llg+Pr5thMOyGEjKzXZK31UqVf+/bhbsG4mDFP4yJyDC02+U3tb1c3wW/IN0XY7Kn9lw==}
+    peerDependencies:
+      react: ^16.13.1 || ^17
+    dependencies:
+      posthog-js: 1.16.0
+      react: 18.2.0
+    dev: false
+
   /next/12.2.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-B4j7D3SHYopLYx6/Ark0fenwIar9tEaZZFAaxmKjgcMMexhVJzB3jt7X+6wcdXPPMeUD6r09weUtnDpjox/vIA==}
     engines: {node: '>=12.22.0'}
@@ -1681,6 +1701,14 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
+  /posthog-js/1.16.0:
+    resolution: {integrity: sha512-7gE4fDSCD7wzdr+Jb/dOIqUubsc4ahnyJYXKudDF+LcuhGX8qP8wRj8WA6JtyQDS1mqSH3Y+AwOWzfC9W8UIMQ==}
+    dependencies:
+      '@sentry/types': 6.19.7
+      fflate: 0.4.8
+      rrweb-snapshot: 1.1.14
+    dev: false
+
   /potpack/1.0.2:
     resolution: {integrity: sha512-choctRBIV9EMT9WGAZHn3V7t0Z2pMQyl0EZE6pFc/6ml3ssw7Dlf/oAOvFwjm1HVsqfQN8GfeFyJ+d8tRzqueQ==}
     dev: false
@@ -1794,6 +1822,10 @@ packages:
     dependencies:
       glob: 7.2.3
     dev: true
+
+  /rrweb-snapshot/1.1.14:
+    resolution: {integrity: sha512-eP5pirNjP5+GewQfcOQY4uBiDnpqxNRc65yKPW0eSoU1XamDfc4M8oqpXGMyUyvLyxFDB0q0+DChuxxiU2FXBQ==}
+    dev: false
 
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
