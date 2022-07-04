@@ -52,7 +52,7 @@ const ItemsList: NextPage = ({
         données de la carte collaborative OpenStreetMap. En cas d'erreur ou
         d'omission, il suffit de cliquer sur l'icône en début de ligne pour
         modifier ce qui doit l'être... Les élements selectionés ici portent
-        l'attribut <code>school=*</code>
+        l'attribut <code>{listDefinition.tags}</code>
       </div>
       {innerTable}
       <Map items={items} initialLat={50.683627} initialLon={4.3749516} />
