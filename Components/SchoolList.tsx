@@ -33,10 +33,10 @@ function SchoolList({ items }) {
       <thead>
         <tr>
           <th></th>
-          <th>Name</th>
-          <th>Address</th>
+          <th>Nom</th>
+          <th>Adresse</th>
           <th>CP</th>
-          <th>Level</th>
+          <th>Niveau</th>
           <th>Web</th>
         </tr>
       </thead>

@@ -5,6 +5,7 @@ import SchoolList from "../../Components/SchoolList";
 import Map from "../../Components/Map";
 import { query } from "../../lib/fetch-overpass";
 import { AllLists } from "../../lib/type-list";
+import Head from "next/head";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const menuItem = AllLists.find((l) => l.slug == context.params?.type);
@@ -44,8 +45,15 @@ const ItemsList: NextPage = ({
 
   return (
     <div className="page-container">
+      <Head>
+        <title>
+          {listDefinition.name} à {city}
+        </title>
+        <meta name="description" content={`Tout sur ${city}`} />
+      </Head>
+
       <h1 className="category">
-        <Link href="/">«</Link> {listDefinition.name} in {city}
+        <Link href="/">«</Link> {listDefinition.name} à {city}
       </h1>
       <div className="category-head">
         Liste des {items.length} elements de la ville de de {city} d'après les

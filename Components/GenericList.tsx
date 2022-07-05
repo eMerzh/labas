@@ -72,11 +72,11 @@ function GenericList({ items, withOpening = false }: GenericProps) {
       <thead>
         <tr>
           <th></th>
-          <th>Name</th>
-          <th>Address</th>
+          <th>Nom</th>
+          <th>Adresse</th>
           <th>CP</th>
           <th>Web</th>
-          {withOpening ? <th>Open ?</th> : null}
+          {withOpening ? <th>Ouvert ?</th> : null}
         </tr>
       </thead>
       <tbody>
