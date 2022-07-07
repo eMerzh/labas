@@ -6,6 +6,30 @@ import Map from "../../Components/Map";
 import { query } from "../../lib/fetch-overpass";
 import { AllLists } from "../../lib/type-list";
 import Head from "next/head";
+import {
+  getCountHistory,
+  getCurrentItems,
+  saveResults,
+} from "../../lib/fetch-history";
+
+interface CityItem {
+  slug: string;
+  name: string;
+  center: { lat: number; lon: number };
+  bbox: [number, number, number, number];
+}
+
+const CURRENT_CITY: CityItem = {
+  slug: "braine-lalleud",
+  name: "Braine-l'Alleud",
+  center: { lat: 50.683627, lon: 4.3749516 },
+  bbox: [
+    4.3004211, // [west, south]
+    50.6259387,
+    4.4119959, // [east, north]
+    50.7342836,
+  ],
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const menuItem = AllLists.find((l) => l.slug == context.params?.type);
@@ -15,9 +39,23 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   }
 
-  const items = await query(menuItem?.query);
+  let items = await getCurrentItems(CURRENT_CITY.slug, menuItem.slug);
+
+  if (items === null) {
+    // fetch them on overpass
+    items = await query(menuItem?.query);
+    await saveResults(CURRENT_CITY.slug, menuItem.slug, items);
+  }
+
+  const history = await getCountHistory(CURRENT_CITY.slug, menuItem.slug);
+
   return {
-    props: { items, listDefinition: menuItem },
+    props: {
+      city: CURRENT_CITY,
+      items,
+      history: JSON.parse(JSON.stringify(history)), // trickery to allow dates in props
+      listDefinition: menuItem,
+    },
   };
 };
 
@@ -30,9 +68,8 @@ export async function getStaticPaths() {
   };
 }
 
-const city = "Braine-l'Alleud";
-
 const ItemsList: NextPage = ({
+  city,
   items,
   listDefinition,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -47,24 +84,28 @@ const ItemsList: NextPage = ({
     <div className="page-container">
       <Head>
         <title>
-          {listDefinition.name} à {city}
+          {listDefinition.name} à {city.name}
         </title>
-        <meta name="description" content={`Tout sur ${city}`} />
+        <meta name="description" content={`Tout sur ${city.name}`} />
       </Head>
 
       <h1 className="category">
-        <Link href="/">«</Link> {listDefinition.name} à {city}
+        <Link href="/">«</Link> {listDefinition.name} à {city.name}
       </h1>
       <div className="category-head">
-        Liste des {items.length} elements de la ville de de {city} d'après les
+        Liste des {items.length} elements de la ville de {city.name} d'après les
         données de la carte collaborative OpenStreetMap. En cas d'erreur ou
         d'omission, il suffit de cliquer sur l'icône en début de ligne pour
         modifier ce qui doit l'être... Les élements selectionés ici portent
         l'attribut <code>{listDefinition.tags}</code>
       </div>
       {innerTable}
-      <Map items={items} initialLat={50.683627} initialLon={4.3749516} />
-      {/* FIXME:  change hardcoded city lat-lon*/}
+      <Map
+        items={items}
+        initialLat={city.center.lat}
+        initialLon={city.center.lon}
+        outerBox={city.bbox}
+      />
       <footer>
         Les tableaux et les cartes ci-dessus sont générés a partir de la base de
         données collaborative OpenStreetMap. Compléter les données

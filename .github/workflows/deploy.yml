@@ -33,6 +33,10 @@ jobs:
         env:
           CI: true
           NODE_ENV: production
+          PGHOST: ${{ secrets.PGHOST }}
+          PGDATABASE: ${{ secrets.PGDATABASE }}
+          PGUSER: ${{ secrets.PGUSER }}
+          PGPASSWORD: ${{ secrets.PGPASSWORD }}
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3

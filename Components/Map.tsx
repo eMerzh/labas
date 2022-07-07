@@ -7,8 +7,9 @@ interface MapProps {
   items: ResultItem[];
   initialLat: number;
   initialLon: number;
+  outerBox: [number, number, number, number];
 }
-const Map = ({ items, initialLat, initialLon }: MapProps) => {
+const Map = ({ items, initialLat, initialLon, outerBox }: MapProps) => {
   const mapContainer = useRef(null);
   const mapRef = useRef<maplibregl.Map>();
   const [lng] = useState<number>(initialLon);
@@ -29,10 +30,7 @@ const Map = ({ items, initialLat, initialLon }: MapProps) => {
 
     map.addControl(new maplibregl.NavigationControl({}), "top-right");
     // restict to bounding box
-    map.setMaxBounds([
-      [4.3004211, 50.6259387], // [west, south]
-      [4.4119959, 50.7342836], // [east, north]
-    ]);
+    map.setMaxBounds(outerBox);
     items.map((item) => {
       new maplibregl.Marker({ color: "#FF0000" })
         .setLngLat([parseFloat(item.lon), parseFloat(item.lat)])
