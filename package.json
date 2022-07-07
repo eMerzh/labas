@@ -11,7 +11,7 @@
   "dependencies": {
     "maplibre-gl": "^2.1.9",
     "next": "12.2.0",
-    "next-use-posthog": "^1.16.0",
+    "posthog-js": "^1.25.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

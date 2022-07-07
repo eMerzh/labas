@@ -117,7 +117,7 @@ footer {
   background: white;
   border-radius: 3px;
   border-collapse: collapse;
-  height: 320px;
+  /* height: 320px; */
   margin: auto;
   max-width: 1200px;
   padding: 5px;

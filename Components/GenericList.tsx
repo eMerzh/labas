@@ -62,7 +62,7 @@ export function getOpeningCell(item: ResultItem) {
 }
 
 type GenericProps = {
-  items: [ResultItem];
+  items: ResultItem[];
   withOpening?: boolean;
 };
 

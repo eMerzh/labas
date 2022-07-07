@@ -9,8 +9,8 @@ specifiers:
   eslint-config-prettier: ^8.5.0
   maplibre-gl: ^2.1.9
   next: 12.2.0
-  next-use-posthog: ^1.16.0
   opening_hours: ^3.8.0
+  posthog-js: ^1.25.1
   prettier: ^2.7.1
   react: 18.2.0
   react-dom: 18.2.0
@@ -19,7 +19,7 @@ specifiers:
 dependencies:
   maplibre-gl: 2.1.9
   next: 12.2.0_biqbaboplfbrettd7655fr4n2y
-  next-use-posthog: 1.16.0_react@18.2.0
+  posthog-js: 1.25.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -1499,15 +1499,6 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-use-posthog/1.16.0_react@18.2.0:
-    resolution: {integrity: sha512-nEv+0c/m06/uImJTZ8llg+Pr5thMOyGEjKzXZK31UqVf+/bhbsG4mDFP4yJyDC02+U3tb1c3wW/IN0XY7Kn9lw==}
-    peerDependencies:
-      react: ^16.13.1 || ^17
-    dependencies:
-      posthog-js: 1.16.0
-      react: 18.2.0
-    dev: false
-
   /next/12.2.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-B4j7D3SHYopLYx6/Ark0fenwIar9tEaZZFAaxmKjgcMMexhVJzB3jt7X+6wcdXPPMeUD6r09weUtnDpjox/vIA==}
     engines: {node: '>=12.22.0'}
@@ -1714,8 +1705,9 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
-  /posthog-js/1.16.0:
-    resolution: {integrity: sha512-7gE4fDSCD7wzdr+Jb/dOIqUubsc4ahnyJYXKudDF+LcuhGX8qP8wRj8WA6JtyQDS1mqSH3Y+AwOWzfC9W8UIMQ==}
+
+  /posthog-js/1.25.1:
+    resolution: {integrity: sha512-z/YsdDxkzgL9tksqqWDX/yFSm14K7LI6ulyLAEVeY/CfqPEH9/0otbMjU4OfByvoLljubRurEHQKo+59fhIApA==}
     dependencies:
       '@sentry/types': 6.19.7
       fflate: 0.4.8
