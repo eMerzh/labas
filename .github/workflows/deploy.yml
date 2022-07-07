@@ -32,6 +32,7 @@ jobs:
       - run: pnpm build && pnpm next export
         env:
           CI: true
+          NODE_ENV: production
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
