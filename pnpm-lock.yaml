@@ -4,6 +4,9 @@ specifiers:
   '@types/node': 18.0.0
   '@types/react': 18.0.14
   '@types/react-dom': 18.0.5
+  chart.js: ^3.8.0
+  chartjs-adapter-date-fns: ^2.0.0
+  date-fns: ^2.28.0
   eslint: 8.18.0
   eslint-config-next: 12.2.0
   eslint-config-prettier: ^8.5.0
@@ -14,15 +17,20 @@ specifiers:
   posthog-js: ^1.25.1
   prettier: ^2.7.1
   react: 18.2.0
+  react-chartjs-2: ^4.2.0
   react-dom: 18.2.0
   typescript: 4.7.4
 
 dependencies:
+  chart.js: 3.8.0
+  chartjs-adapter-date-fns: 2.0.0_chart.js@3.8.0
+  date-fns: 2.28.0
   maplibre-gl: 2.1.9
   next: 12.2.0_biqbaboplfbrettd7655fr4n2y
   pg: 8.7.3
   posthog-js: 1.25.1
   react: 18.2.0
+  react-chartjs-2: 4.2.0_yw232gbma4xqgfjmup6t23g3w4
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
@@ -543,6 +551,18 @@ packages:
       supports-color: 7.2.0
     dev: true
 
+  /chart.js/3.8.0:
+    resolution: {integrity: sha512-cr8xhrXjLIXVLOBZPkBZVF6NDeiVIrPLHcMhnON7UufudL+CNeRrD+wpYanswlm8NpudMdrt3CHoLMQMxJhHRg==}
+    dev: false
+
+  /chartjs-adapter-date-fns/2.0.0_chart.js@3.8.0:
+    resolution: {integrity: sha512-rmZINGLe+9IiiEB0kb57vH3UugAtYw33anRiw5kS2Tu87agpetDDoouquycWc9pRsKtQo5j+vLsYHyr8etAvFw==}
+    peerDependencies:
+      chart.js: ^3.0.0
+    dependencies:
+      chart.js: 3.8.0
+    dev: false
+
   /color-convert/2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
@@ -583,6 +603,11 @@ packages:
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
     dev: true
+
+  /date-fns/2.28.0:
+    resolution: {integrity: sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==}
+    engines: {node: '>=0.11'}
+    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -1840,6 +1865,16 @@ packages:
 
   /quickselect/2.0.0:
     resolution: {integrity: sha512-RKJ22hX8mHe3Y6wH/N3wCM6BWtjaxIyyUIkpHOvfFnxdI4yD4tBXEBKSbriGujF6jnSVkJrffuo6vxACiSSxIw==}
+    dev: false
+
+  /react-chartjs-2/4.2.0_yw232gbma4xqgfjmup6t23g3w4:
+    resolution: {integrity: sha512-9Vm9Sg9XAKiR579/FnBkesofjW9goaaFLfS7XlGTzUJlWFZGSE6A/pBI6+i/bP3pobKZoFcWJdFnjShytToqXw==}
+    peerDependencies:
+      chart.js: ^3.5.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      chart.js: 3.8.0
+      react: 18.2.0
     dev: false
 
   /react-dom/18.2.0_react@18.2.0:

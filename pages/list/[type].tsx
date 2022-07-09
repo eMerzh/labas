@@ -11,6 +11,7 @@ import {
   getCurrentItems,
   saveResults,
 } from "../../lib/fetch-history";
+import EvolutionChart from "../../Components/EvolutionChart";
 
 interface CityItem {
   slug: string;
@@ -71,6 +72,7 @@ export async function getStaticPaths() {
 const ItemsList: NextPage = ({
   city,
   items,
+  history,
   listDefinition,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   let innerTable;
@@ -105,6 +107,11 @@ const ItemsList: NextPage = ({
         initialLat={city.center.lat}
         initialLon={city.center.lon}
         outerBox={city.bbox}
+      />
+      <EvolutionChart
+        data={history}
+        title={`${listDefinition.name} à ${city.name} encodés sur Openstreetmap`}
+        dataType={listDefinition.name}
       />
       <footer>
         Les tableaux et les cartes ci-dessus sont générés a partir de la base de
