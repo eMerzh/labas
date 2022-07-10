@@ -6,6 +6,7 @@ export interface PageType {
   component?: string;
   tags?: string;
 }
+
 export const AllLists: PageType[] = [
   {
     slug: "doctor",
@@ -60,5 +61,26 @@ export const AllLists: PageType[] = [
     query: `nwr["shop"="butcher"](area.b);`,
     props: { withOpening: true },
     tags: '"shop"="butcher"',
+  },
+  {
+    slug: "shop-supermarket",
+    name: "Supermarché",
+    query: `nwr["shop"="supermarket"](area.b);`,
+    props: { withOpening: true },
+    tags: '"shop"="supermarket"',
+  },
+  {
+    slug: "shop-bank",
+    name: "Banque",
+    query: `nwr["amenity"="bank"](area.b);`,
+    props: { withOpening: true },
+    tags: '"amenity"="bank"',
+  },
+  {
+    slug: "shop-bio",
+    name: "Magasin Bio",
+    query: `nwr["shop"]["organic"="only"](area.b);`,
+    props: { withOpening: true },
+    tags: '"shop"=* avec "organic"="only"',
   },
 ];
