@@ -26,7 +26,7 @@ const ContributorsChart = ({ data, title, dataType }) => {
     responsive: true,
     plugins: {
       legend: {
-        position: "right",
+        position: "bottom",
         labels: {
           color: "white",
         },
@@ -42,7 +42,7 @@ const ContributorsChart = ({ data, title, dataType }) => {
     labels: data.map((d) => d.username),
     datasets: [
       {
-        label: "Dataset 1", // TODO:
+        label: "Contributions",
         data: data.map((d) => d.count),
         backgroundColor: [
           "#0074D9",
