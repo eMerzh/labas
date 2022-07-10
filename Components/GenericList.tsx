@@ -54,7 +54,13 @@ export function getOpeningCell(item: ResultItem) {
       lon: parseInt(item.lon, 10),
       address: { country_code: "be", state: "" },
     });
-    return parsed.getStateString();
+    const parsedString = parsed.getStateString();
+    if (parsedString === "open") {
+      return <span className="opening open">Ouvert</span>;
+    }
+    if (["closed", "close"].includes(parsedString)) {
+      return <span className="opening closed">Fermé</span>;
+    }
   } catch (e) {
     console.warn(e);
     return null;

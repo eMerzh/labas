@@ -123,6 +123,13 @@ footer {
   color: #70acbf;
   text-align: center;
 }
+
+.opening.open {
+  color: green;
+}
+.opening.closed {
+  color: rgb(188, 28, 28);
+}
 /*** Table Styles **/
 
 .table-fill {
