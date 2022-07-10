@@ -61,10 +61,16 @@ interface TimeCountResult {
   date: Date;
   count: number;
 }
+
+interface UserCountResut {
+  username: string;
+  count: number | null;
+}
+
 export async function getCountHistory(
   citySlug: string,
   dataSlug: string
-): Promise<[TimeCountResult]> {
+): Promise<TimeCountResult[]> {
   const client = await pool.connect();
   try {
     const res = await client.query(
@@ -85,6 +91,34 @@ export async function getCountHistory(
       left join point_history on date_trunc('day', point_history.created) = days.day and city_slug=$1 AND data_slug=$2
       group by 1
 
+      `,
+      [citySlug, dataSlug]
+    );
+
+    return res.rows;
+  } finally {
+    // Make sure to release the client before any error handling,
+    // just in case the error handling itself throws an error.
+    client.release();
+  }
+}
+
+export async function getContributors(
+  citySlug: string,
+  dataSlug: string
+): Promise<UserCountResut[]> {
+  const client = await pool.connect();
+  try {
+    const res = await client.query(
+      `
+      select  count(*), jsonb_path_query(items, '$[*]')->'user'->>'name' as username from (
+          select items from point_history where
+          city_slug = $1
+          and data_slug = $2
+          order by created desc
+          limit 1
+      ) as x
+      group by 2;
       `,
       [citySlug, dataSlug]
     );

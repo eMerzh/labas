@@ -106,6 +106,16 @@ main > div {
   border-radius: 3px;
 }
 
+.charts-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.charts-container > div {
+  width: 400px;
+}
+.charts-container > div:last-of-type {
+  width: 500px;
+}
 footer {
   font-size: small;
   color: #70acbf;

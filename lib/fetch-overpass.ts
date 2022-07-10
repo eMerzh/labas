@@ -5,6 +5,11 @@ export interface ResultItem {
   type: string;
   lat: string;
   lon: string;
+  timestamp: string;
+  user: {
+    name: string;
+    id: number;
+  };
   tags: ResultTags;
 }
 
@@ -38,16 +43,14 @@ export async function query(query: string): Promise<[ResultItem]> {
         area[name="Braine-l'Alleud"]->.b;
         ${query}
     );
-    out meta tags center;`;
+    out meta center;`;
 
   const url =
     "https://overpass-api.de/api/interpreter?" +
     new URLSearchParams({ data: wrappedQuery }).toString();
-  console.log("URL", url);
+  console.log("Fetching ", query);
   const res = await fetchPlus(url, fetchOpts);
-  // console.log(res, await res.text)
   const data = await res.json();
-  // console.log("query", data)
 
   return data.elements.filter((e) => e.type != "area").map(processResult);
 }
@@ -59,7 +62,12 @@ function processResult(el): ResultItem {
     lat: el.center?.lat || el.lat,
     lon: el.center?.lon || el.lon,
     tags: el.tags,
+    timestamp: el.timestamp,
+    user: {
+      name: el.user,
+      id: el.uid,
+    },
   };
-  // console.log('item', item)
+
   return item;
 }

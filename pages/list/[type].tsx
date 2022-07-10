@@ -7,11 +7,13 @@ import { query } from "../../lib/fetch-overpass";
 import { AllLists } from "../../lib/type-list";
 import Head from "next/head";
 import {
+  getContributors,
   getCountHistory,
   getCurrentItems,
   saveResults,
 } from "../../lib/fetch-history";
 import EvolutionChart from "../../Components/EvolutionChart";
+import ContributorsChart from "../../Components/ContributorsChart";
 
 interface CityItem {
   slug: string;
@@ -49,12 +51,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   const history = await getCountHistory(CURRENT_CITY.slug, menuItem.slug);
+  const contributors = await getContributors(CURRENT_CITY.slug, menuItem.slug);
 
   return {
     props: {
       city: CURRENT_CITY,
       items,
       history: JSON.parse(JSON.stringify(history)), // trickery to allow dates in props
+      contributors,
       listDefinition: menuItem,
     },
   };
@@ -74,6 +78,7 @@ const ItemsList: NextPage = ({
   items,
   history,
   listDefinition,
+  contributors,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   let innerTable;
   if (listDefinition.component == "School") {
@@ -108,11 +113,18 @@ const ItemsList: NextPage = ({
         initialLon={city.center.lon}
         outerBox={city.bbox}
       />
-      <EvolutionChart
-        data={history}
-        title={`${listDefinition.name} à ${city.name} encodés sur Openstreetmap`}
-        dataType={listDefinition.name}
-      />
+      <div className="charts-container">
+        <ContributorsChart
+          data={contributors}
+          title={`Contributeurs sur OpenStreetMap`}
+          dataType={listDefinition.name}
+        />
+        <EvolutionChart
+          data={history}
+          title={`${listDefinition.name} à ${city.name} encodés sur Openstreetmap`}
+          dataType={listDefinition.name}
+        />
+      </div>
       <footer>
         Les tableaux et les cartes ci-dessus sont générés a partir de la base de
         données collaborative OpenStreetMap. Compléter les données

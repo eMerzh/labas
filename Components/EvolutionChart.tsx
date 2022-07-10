@@ -23,24 +23,6 @@ ChartJS.register(
   TimeSeriesScale
 );
 
-export const options = {
-  responsive: true,
-  adapters: {
-    date: {
-      locale: "fr",
-    },
-  },
-  plugins: {
-    legend: {
-      position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: "Chart.js Line Chart",
-    },
-  },
-};
-
 const EvolutionChart = ({ data, title, dataType }) => {
   const config: any = {
     responsive: true,
@@ -75,7 +57,7 @@ const EvolutionChart = ({ data, title, dataType }) => {
     },
     plugins: {
       legend: {
-        position: "top" as const,
+        display: false,
       },
       title: {
         display: true,
@@ -99,8 +81,8 @@ const EvolutionChart = ({ data, title, dataType }) => {
   };
 
   return (
-    <div style={{ width: 400, height: 300 }}>
-      <Chart type="line" data={datasets} options={config} width={200} />
+    <div>
+      <Chart type="line" data={datasets} options={config} />
     </div>
   );
 };
