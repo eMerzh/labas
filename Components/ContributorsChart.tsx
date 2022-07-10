@@ -65,7 +65,6 @@ const ContributorsChart = ({ data, title, dataType }) => {
     ],
   };
 
-  console.log(datasets, config, data);
   return (
     <div>
       <Chart type="doughnut" data={datasets} options={config} />
