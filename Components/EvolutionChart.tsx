@@ -23,7 +23,7 @@ ChartJS.register(
   TimeSeriesScale
 );
 
-const EvolutionChart = ({ data, title, dataType }) => {
+const EvolutionChart = ({ data, title }) => {
   const config: any = {
     responsive: true,
     scales: {
@@ -72,7 +72,7 @@ const EvolutionChart = ({ data, title, dataType }) => {
   const datasets = {
     datasets: [
       {
-        label: `Nombre de ${dataType}`,
+        label: `Nombre d'elements`,
         data: data.map((row) => ({ x: new Date(row.date), y: row.count })),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",

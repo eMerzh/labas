@@ -14,25 +14,7 @@ import {
 } from "../../lib/fetch-history";
 import EvolutionChart from "../../Components/EvolutionChart";
 import ContributorsChart from "../../Components/ContributorsChart";
-
-interface CityItem {
-  slug: string;
-  name: string;
-  center: { lat: number; lon: number };
-  bbox: [number, number, number, number];
-}
-
-const CURRENT_CITY: CityItem = {
-  slug: "braine-lalleud",
-  name: "Braine-l'Alleud",
-  center: { lat: 50.683627, lon: 4.3749516 },
-  bbox: [
-    4.3004211, // [west, south]
-    50.6259387,
-    4.4119959, // [east, north]
-    50.7342836,
-  ],
-};
+import { CURRENT_CITY } from "../../lib/type-city";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const menuItem = AllLists.find((l) => l.slug == context.params?.type);
@@ -42,20 +24,21 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   }
 
-  let items = await getCurrentItems(CURRENT_CITY.slug, menuItem.slug);
+  const city = CURRENT_CITY;
+  let items = await getCurrentItems(city.slug, menuItem.slug);
 
   if (items === null) {
     // fetch them on overpass
     items = await query(menuItem?.query);
-    await saveResults(CURRENT_CITY.slug, menuItem.slug, items);
+    await saveResults(city.slug, menuItem.slug, items);
   }
 
-  const history = await getCountHistory(CURRENT_CITY.slug, menuItem.slug);
-  const contributors = await getContributors(CURRENT_CITY.slug, menuItem.slug);
+  const history = await getCountHistory(city.slug, menuItem.slug);
+  const contributors = await getContributors(city.slug, menuItem.slug);
 
   return {
     props: {
-      city: CURRENT_CITY,
+      city,
       items,
       history: JSON.parse(JSON.stringify(history)), // trickery to allow dates in props
       contributors,
@@ -122,7 +105,6 @@ const ItemsList: NextPage = ({
         <EvolutionChart
           data={history}
           title={`${listDefinition.name} à ${city.name} encodés sur Openstreetmap`}
-          dataType={listDefinition.name}
         />
       </div>
       <footer>
