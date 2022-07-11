@@ -1,44 +1,47 @@
-import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
+import { GetServerSidePropsContext, InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import GenericList from "../../Components/GenericList";
-import SchoolList from "../../Components/SchoolList";
-import Map from "../../Components/Map";
-import { query } from "../../lib/fetch-overpass";
-import { AllLists } from "../../lib/type-list";
+import GenericList from "../../../Components/GenericList";
+import SchoolList from "../../../Components/SchoolList";
+import Map from "../../../Components/Map";
+import { query, ResultItem } from "../../../lib/fetch-overpass";
+import { AllLists, PageType } from "../../../lib/type-list";
 import Head from "next/head";
 import {
   getContributors,
   getCountHistory,
   getCurrentItems,
   saveResults,
-} from "../../lib/fetch-history";
-import EvolutionChart from "../../Components/EvolutionChart";
-import ContributorsChart from "../../Components/ContributorsChart";
-import { CURRENT_CITY } from "../../lib/type-city";
+  TimeCountResult,
+  UserCountResut,
+} from "../../../lib/fetch-history";
+import EvolutionChart from "../../../Components/EvolutionChart";
+import ContributorsChart from "../../../Components/ContributorsChart";
+import { CityItem, CURRENT_CITY } from "../../../lib/type-city";
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps = async (context) => {
   const menuItem = AllLists.find((l) => l.slug == context.params?.type);
+  const cityItem = CURRENT_CITY; //TAKEN FROM context.params?.type
   if (!menuItem) {
     return {
       notFound: true,
+      props: {},
     };
   }
 
-  const city = CURRENT_CITY;
-  let items = await getCurrentItems(city.slug, menuItem.slug);
+  let items = await getCurrentItems(cityItem.slug, menuItem.slug);
 
   if (items === null) {
     // fetch them on overpass
     items = await query(menuItem?.query);
-    await saveResults(city.slug, menuItem.slug, items);
+    await saveResults(cityItem.slug, menuItem.slug, items);
   }
 
-  const history = await getCountHistory(city.slug, menuItem.slug);
-  const contributors = await getContributors(city.slug, menuItem.slug);
+  const history = await getCountHistory(cityItem.slug, menuItem.slug);
+  const contributors = await getContributors(cityItem.slug, menuItem.slug);
 
   return {
     props: {
-      city,
+      city: cityItem,
       items,
       history: JSON.parse(JSON.stringify(history)), // trickery to allow dates in props
       contributors,
@@ -47,22 +50,28 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   return {
     paths: AllLists.map((l) => {
-      return { params: { type: l.slug } };
+      return { params: { city: CURRENT_CITY.slug, type: l.slug } };
     }),
     fallback: false,
   };
-}
+};
 
-const ItemsList: NextPage = ({
+const ItemsList = ({
   city,
   items,
   history,
   listDefinition,
   contributors,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: {
+  city: CityItem;
+  items: ResultItem[];
+  listDefinition: PageType;
+  history: TimeCountResult;
+  contributors: UserCountResut;
+}) => {
   let innerTable;
   if (listDefinition.component == "School") {
     innerTable = <SchoolList items={items} />;

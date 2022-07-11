@@ -57,12 +57,12 @@ export async function saveResults(
   return true;
 }
 
-interface TimeCountResult {
+export interface TimeCountResult {
   date: Date;
   count: number;
 }
 
-interface UserCountResut {
+export interface UserCountResut {
   username: string;
   count: number | null;
 }

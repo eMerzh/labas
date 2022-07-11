@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { CURRENT_CITY } from "../lib/type-city";
 import { AllLists } from "../lib/type-list";
 
 const Home: NextPage = () => {
@@ -19,7 +20,9 @@ const Home: NextPage = () => {
             {AllLists.map((listItem) => {
               return (
                 <li key={listItem.slug} className="pages-link">
-                  <Link href={`/list/${listItem.slug}`}>{listItem.name}</Link>
+                  <Link href={`/list/${CURRENT_CITY.slug}/${listItem.slug}`}>
+                    {listItem.name}
+                  </Link>
                 </li>
               );
             })}
