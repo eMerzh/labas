@@ -115,9 +115,19 @@ main > div {
   width: 400px;
 }
 .charts-container > div:last-of-type {
-  width: 500px;
   height: 100%;
 }
+@media (max-width: 800px) {
+  .charts-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .charts-container > div {
+    width: calc(100% - 20px);
+  }
+}
+
 footer {
   font-size: small;
   color: #70acbf;
@@ -138,7 +148,6 @@ footer {
   border-collapse: collapse;
   /* height: 320px; */
   margin: auto;
-  max-width: 1200px;
   padding: 5px;
   width: 100%;
   animation: float 5s infinite;
