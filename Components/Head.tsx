@@ -1,14 +1,14 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const DOMAIN = "https://emerzh.github.io/labas/";
-const DEFAULT_OG_IMAGE = "/og_image.png";
 
 const Meta = ({
   title = "Là-bas",
   description = "A DESC",
   siteName = "Là-bas",
   canonical,
-  ogImage = DEFAULT_OG_IMAGE,
+  ogImage,
   ogType = "website",
   twitterHandle = "@eMerzh",
 }: {
@@ -23,6 +23,11 @@ const Meta = ({
   canonical?: string;
   twitterHandle?: string;
 }) => {
+  const router = useRouter();
+  if (ogImage === undefined) {
+    ogImage = `${router.basePath}/og_image.png`;
+  }
+
   return (
     <Head>
       <title key="title">{`${title} – ${siteName}`}</title>
@@ -37,11 +42,7 @@ const Meta = ({
       <meta key="og_locale" property="og:locale" content="en_IE" />
       <meta key="og_site_name" property="og:site_name" content={siteName} />
       <meta key="og_url" property="og:url" content={canonical ?? DOMAIN} />
-      <meta
-        key="og_image"
-        property="og:image"
-        content={ogImage ?? DEFAULT_OG_IMAGE}
-      />
+      <meta key="og_image" property="og:image" content={ogImage} />
       <meta
         key="og_image:alt"
         property="og:image:alt"
@@ -72,7 +73,7 @@ const Meta = ({
 
       <link rel="canonical" href={canonical ?? DOMAIN} />
 
-      <link rel="shortcut icon" href="/favicon.ico" />
+      <link rel="shortcut icon" href={`${router.basePath}/favicon.ico`} />
     </Head>
   );
 };
