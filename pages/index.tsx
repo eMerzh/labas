@@ -1,21 +1,20 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
+import Meta from "../Components/Head";
 import { CURRENT_CITY } from "../lib/type-city";
 import { AllLists } from "../lib/type-list";
 
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Ici ou Là-bas</title>
-        <meta name="description" content="Tout sur la ville" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Meta
+        title={`Là-bas à ${CURRENT_CITY.name}`}
+        description={`Tous les points d'intéret ${CURRENT_CITY.name}`}
+      />
 
       <main>
         <div>
-          <h1>Ici ou Là-bas... à Braine-l&apos;Alleud</h1>
+          <h1>Là-bas… à {CURRENT_CITY.name}</h1>
           <ul>
             {AllLists.map((listItem) => {
               return (

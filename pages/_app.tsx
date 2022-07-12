@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { usePostHog } from "../lib/usePostHog";
+import Meta from "../Components/Head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   usePostHog("phc_f0Uk8a68uDl7LsYOORxU22Z51ifidvXL48hHldpdz3i", {
@@ -12,7 +13,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     },
   });
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Meta />
+      <Component {...pageProps} />;
+    </>
+  );
 }
 
 export default MyApp;

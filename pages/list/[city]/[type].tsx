@@ -5,7 +5,7 @@ import SchoolList from "../../../Components/SchoolList";
 import Map from "../../../Components/Map";
 import { query, ResultItem } from "../../../lib/fetch-overpass";
 import { AllLists, PageType } from "../../../lib/type-list";
-import Head from "next/head";
+
 import {
   getContributors,
   getCountHistory,
@@ -17,6 +17,7 @@ import {
 import EvolutionChart from "../../../Components/EvolutionChart";
 import ContributorsChart from "../../../Components/ContributorsChart";
 import { CityItem, CURRENT_CITY } from "../../../lib/type-city";
+import Meta from "../../../Components/Head";
 
 export const getStaticProps = async (context) => {
   const menuItem = AllLists.find((l) => l.slug == context.params?.type);
@@ -81,12 +82,10 @@ const ItemsList = ({
 
   return (
     <div className="page-container">
-      <Head>
-        <title>
-          {listDefinition.name} à {city.name}
-        </title>
-        <meta name="description" content={`Tout sur ${city.name}`} />
-      </Head>
+      <Meta
+        title={`${listDefinition.name} à ${city.name}`}
+        description={`Tout sur ${city.name}`}
+      />
 
       <h1 className="category">
         <Link href="/">«</Link> {listDefinition.name} à {city.name}
@@ -95,7 +94,7 @@ const ItemsList = ({
         Liste des {items.length} elements de la ville de {city.name} d'après les
         données de la carte collaborative OpenStreetMap. En cas d'erreur ou
         d'omission, il suffit de cliquer sur l'icône en début de ligne pour
-        modifier ce qui doit l'être... Les élements selectionés ici portent
+        modifier ce qui doit l'être… Les élements selectionés ici portent
         l'attribut <code>{listDefinition.tags}</code>
       </div>
       {innerTable}
