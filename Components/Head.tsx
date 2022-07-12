@@ -24,6 +24,7 @@ const Meta = ({
   twitterHandle?: string;
 }) => {
   const router = useRouter();
+  console.log("PLOPP", router.basePath);
   if (ogImage === undefined) {
     ogImage = `${router.basePath}/og_image.png`;
   }
@@ -48,11 +49,9 @@ const Meta = ({
         property="og:image:alt"
         content={`${title} | ${siteName}`}
       />
-      <meta key="og_image:width" property="og:image:width" content="1200" />
-      <meta key="og_image:height" property="og:image:height" content="630" />
-
+      <meta key="og_image:width" property="og:image:width" content="1323" />
+      <meta key="og_image:height" property="og:image:height" content="872" />
       <meta name="robots" content="index,follow" />
-
       <meta
         key="twitter:card"
         name="twitter:card"
@@ -69,10 +68,9 @@ const Meta = ({
         key="twitter:description"
         property="twitter:description"
         content={description}
-      />
-
+      />{" "}
+      <meta key="twitter:image" property="twitter:image" content={ogImage} />
       <link rel="canonical" href={canonical ?? DOMAIN} />
-
       <link rel="shortcut icon" href={`${router.basePath}/favicon.ico`} />
     </Head>
   );
