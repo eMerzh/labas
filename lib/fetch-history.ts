@@ -43,7 +43,7 @@ export async function saveResults(
     const res = await client.query(
       `
       INSERT INTO "point_history" ("city_slug", "data_slug", "items") (
-        SELECT $1, $2, $3 WHERE NOT EXISTS (select 1 from "point_history" WHERE city_slug=$1 AND data_slug=$2 and created > now() - '2h'::interval)
+        SELECT $1, $2, $3 WHERE NOT EXISTS (select 1 from "point_history" WHERE city_slug=$1 AND data_slug=$2 and created > now() - '4h'::interval)
       )
       `,
       [citySlug, dataSlug, JSON.stringify(overpassItems)]

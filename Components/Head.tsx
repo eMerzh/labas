@@ -49,8 +49,8 @@ const Meta = ({
         property="og:image:alt"
         content={`${title} | ${siteName}`}
       />
-      <meta key="og_image:width" property="og:image:width" content="1323" />
-      <meta key="og_image:height" property="og:image:height" content="872" />
+      <meta key="og_image:width" property="og:image:width" content="1200" />
+      <meta key="og_image:height" property="og:image:height" content="631" />
       <meta name="robots" content="index,follow" />
       <meta
         key="twitter:card"
