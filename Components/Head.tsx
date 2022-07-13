@@ -24,7 +24,7 @@ const Meta = ({
   twitterHandle?: string;
 }) => {
   const router = useRouter();
-  console.log("PLOPP", router.basePath);
+
   if (ogImage === undefined) {
     ogImage = `${router.basePath}/og_image.png`;
   }
