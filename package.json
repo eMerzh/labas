@@ -9,26 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "chart.js": "^3.8.0",
-    "chartjs-adapter-date-fns": "^2.0.0",
-    "date-fns": "^2.28.0",
-    "maplibre-gl": "^2.1.9",
-    "next": "12.2.2",
-    "pg": "^8.7.3",
-    "posthog-js": "^1.25.1",
+    "chart.js": "^4.4.0",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "date-fns": "^2.30.0",
+    "maplibre-gl": "^3.5.1",
+    "next": "13.5.6",
+    "pg": "^8.11.3",
+    "posthog-js": "^1.84.1",
     "react": "18.2.0",
-    "react-chartjs-2": "^4.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "18.0.0",
-    "@types/react": "18.0.14",
-    "@types/react-dom": "18.0.5",
-    "eslint": "8.18.0",
-    "eslint-config-next": "12.2.0",
-    "eslint-config-prettier": "^8.5.0",
+    "@types/node": "20.8.7",
+    "@types/react": "18.2.31",
+    "@types/react-dom": "18.2.14",
+    "eslint": "8.52.0",
+    "eslint-config-next": "13.5.6",
+    "eslint-config-prettier": "^9.0.0",
     "opening_hours": "^3.8.0",
-    "prettier": "^2.7.1",
-    "typescript": "4.7.4"
+    "prettier": "^3.0.3",
+    "typescript": "5.2.2"
   }
 }
