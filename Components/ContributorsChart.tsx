@@ -18,7 +18,7 @@ ChartJS.register(
   ArcElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 const ContributorsChart = ({ data, title, dataType }) => {

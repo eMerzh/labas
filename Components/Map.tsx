@@ -32,8 +32,14 @@ const Map = ({ items, initialLat, initialLon, outerBox }: MapProps) => {
     // restict to bounding box
     map.setMaxBounds(outerBox);
     items.map((item) => {
+      // create the popup
+      const popup = new maplibregl.Popup({ offset: 25 }).setHTML(
+        `<h2>${item.tags.name}</h2>`,
+      );
+
       new maplibregl.Marker({ color: "#FF0000" })
         .setLngLat([parseFloat(item.lon), parseFloat(item.lat)])
+        .setPopup(popup)
         .addTo(map);
     });
   });

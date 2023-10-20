@@ -42,10 +42,25 @@ function SchoolList({ items }) {
       </thead>
       <tbody>
         {items.map((item) => {
+          const mainFase = item.tags["ref:fase"]?.split("/")[0];
           return (
             <tr key={item.osm_id}>
               <td>{getEditCell(item)}</td>
-              <td>{item.tags.name}</td>
+              <td>
+                {item.tags.name}
+                {item.tags["ref:fase"] && (
+                  <>
+                    <br />
+                    <a
+                      href={`http://www.enseignement.be/index.php?page=24797&etab_id=${mainFase}`}
+                      className="text-muted"
+
+                    >
+                      Fase: {item.tags["ref:fase"]}
+                    </a>
+                  </>
+                )}
+              </td>
               <td>{getStreetCell(item)}</td>
               <td>{getCityCell(item)}</td>
               <td>{getLevel(item)}</td>

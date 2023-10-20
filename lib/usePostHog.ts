@@ -2,7 +2,10 @@ import { useRouter } from "next/router";
 import posthog, { PostHogConfig } from "posthog-js";
 import { useEffect } from "react";
 
-export const usePostHog = (apiKey: string, config?: Partial<PostHogConfig>): void => {
+export const usePostHog = (
+  apiKey: string,
+  config?: Partial<PostHogConfig>,
+): void => {
   const router = useRouter();
 
   useEffect((): (() => void) => {

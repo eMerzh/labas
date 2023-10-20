@@ -12,7 +12,7 @@ const pool = new Pool();
  */
 export async function getCurrentItems(
   citySlug: string,
-  dataSlug: string
+  dataSlug: string,
 ): Promise<ResultItem[] | null> {
   const client = await pool.connect();
   try {
@@ -20,7 +20,7 @@ export async function getCurrentItems(
       `
         SELECT "city_slug", "data_slug", "items", "created" FROM "point_history" WHERE city_slug=$1 AND data_slug=$2 and created > now() - '2h'::interval LIMIT 1
         `,
-      [citySlug, dataSlug]
+      [citySlug, dataSlug],
     );
     if (res.rows.length === 0) {
       return null;
@@ -36,7 +36,7 @@ export async function getCurrentItems(
 export async function saveResults(
   citySlug: string,
   dataSlug: string,
-  overpassItems: ResultItem[]
+  overpassItems: ResultItem[],
 ): Promise<boolean> {
   const client = await pool.connect();
   try {
@@ -46,7 +46,7 @@ export async function saveResults(
         SELECT $1, $2, $3 WHERE NOT EXISTS (select 1 from "point_history" WHERE city_slug=$1 AND data_slug=$2 and created > now() - '4h'::interval)
       )
       `,
-      [citySlug, dataSlug, JSON.stringify(overpassItems)]
+      [citySlug, dataSlug, JSON.stringify(overpassItems)],
     );
     console.log(res.rows[0]);
   } finally {
@@ -69,7 +69,7 @@ export interface UserCountResut {
 
 export async function getCountHistory(
   citySlug: string,
-  dataSlug: string
+  dataSlug: string,
 ): Promise<TimeCountResult[]> {
   const client = await pool.connect();
   try {
@@ -92,7 +92,7 @@ export async function getCountHistory(
       group by 1
 
       `,
-      [citySlug, dataSlug]
+      [citySlug, dataSlug],
     );
 
     return res.rows;
@@ -105,7 +105,7 @@ export async function getCountHistory(
 
 export async function getContributors(
   citySlug: string,
-  dataSlug: string
+  dataSlug: string,
 ): Promise<UserCountResut[]> {
   const client = await pool.connect();
   try {
@@ -120,7 +120,7 @@ export async function getContributors(
       ) as x
       group by 2;
       `,
-      [citySlug, dataSlug]
+      [citySlug, dataSlug],
     );
 
     return res.rows;

@@ -20,7 +20,7 @@ ChartJS.register(
   Title,
   Tooltip,
   TimeScale,
-  TimeSeriesScale
+  TimeSeriesScale,
 );
 
 const EvolutionChart = ({ data, title }) => {

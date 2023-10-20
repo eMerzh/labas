@@ -70,7 +70,8 @@ main > div {
   height: 400px;
   background: white;
   border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   padding: 30px;
   padding-left: 50px;
@@ -242,4 +243,8 @@ td.text-center {
 
 td.text-right {
   text-align: right;
+}
+
+.text-muted {
+  color: #9b9b9b;
 }
