@@ -2,6 +2,7 @@ import { GetServerSidePropsContext, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import GenericList from "../../../Components/GenericList";
 import SchoolList from "../../../Components/SchoolList";
+import RestaurantList from "../../../Components/RestaurantList";
 import Map from "../../../Components/Map";
 import { query, ResultItem } from "../../../lib/fetch-overpass";
 import { AllLists, PageType } from "../../../lib/type-list";
@@ -76,6 +77,8 @@ const ItemsList = ({
   let innerTable;
   if (listDefinition.component == "School") {
     innerTable = <SchoolList items={items} />;
+  } else if (listDefinition.component == "Restaurant") {
+    innerTable = <RestaurantList items={items} />;
   } else {
     innerTable = <GenericList items={items} {...listDefinition.props} />;
   }

@@ -37,6 +37,7 @@ export const AllLists: PageType[] = [
   {
     slug: "restaurant",
     name: "Restaurants",
+    component: "Restaurant",
     query: `nwr["amenity"="restaurant"](area.b);`,
     props: { withOpening: true },
     tags: '"amenity"="restaurant"',
