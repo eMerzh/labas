@@ -30,7 +30,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
       - run: pnpm install --frozen-lockfile
-      - run: pnpm build && pnpm next export
+      - run: pnpm build && pnpm next build
         env:
           CI: true
           NODE_ENV: production
