@@ -13,7 +13,7 @@
     "chartjs-adapter-date-fns": "^3.0.0",
     "date-fns": "^2.30.0",
     "maplibre-gl": "^3.6.2",
-    "next": "14.0.4",
+    "next": "14.1.1",
     "pg": "^8.11.3",
     "posthog-js": "^1.96.1",
     "react": "18.2.0",
