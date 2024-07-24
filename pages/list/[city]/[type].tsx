@@ -1,27 +1,28 @@
 import { GetServerSidePropsContext, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import GenericList from "../../../Components/GenericList";
-import SchoolList from "../../../Components/SchoolList";
+import InteractiveMap from "../../../Components/InteractiveMap";
 import RestaurantList from "../../../Components/RestaurantList";
-import Map from "../../../Components/Map";
-import { query, ResultItem } from "../../../lib/fetch-overpass";
+import SchoolList from "../../../Components/SchoolList";
+import { ResultItem, query } from "../../../lib/fetch-overpass";
 import { AllLists, PageType } from "../../../lib/type-list";
 
+import { ReactNode } from "react";
+import ContributorsChart from "../../../Components/ContributorsChart";
+import EvolutionChart from "../../../Components/EvolutionChart";
+import Meta from "../../../Components/Head";
 import {
+  TimeCountResult,
+  UserCountResut,
   getContributors,
   getCountHistory,
   getCurrentItems,
   saveResults,
-  TimeCountResult,
-  UserCountResut,
 } from "../../../lib/fetch-history";
-import EvolutionChart from "../../../Components/EvolutionChart";
-import ContributorsChart from "../../../Components/ContributorsChart";
-import { CityItem, CURRENT_CITY } from "../../../lib/type-city";
-import Meta from "../../../Components/Head";
+import { CURRENT_CITY, CityItem } from "../../../lib/type-city";
 
 export const getStaticProps = async (context) => {
-  const menuItem = AllLists.find((l) => l.slug == context.params?.type);
+  const menuItem = AllLists.find((l) => l.slug === context.params?.type);
   const cityItem = CURRENT_CITY; //TAKEN FROM context.params?.type
   if (!menuItem) {
     return {
@@ -74,10 +75,10 @@ const ItemsList = ({
   history: TimeCountResult;
   contributors: UserCountResut;
 }) => {
-  let innerTable;
-  if (listDefinition.component == "School") {
+  let innerTable: ReactNode;
+  if (listDefinition.component === "School") {
     innerTable = <SchoolList items={items} />;
-  } else if (listDefinition.component == "Restaurant") {
+  } else if (listDefinition.component === "Restaurant") {
     innerTable = <RestaurantList items={items} />;
   } else {
     innerTable = <GenericList items={items} {...listDefinition.props} />;
@@ -101,7 +102,7 @@ const ItemsList = ({
         l'attribut <code>{listDefinition.tags}</code>
       </div>
       {innerTable}
-      <Map
+      <InteractiveMap
         items={items}
         initialLat={city.center.lat}
         initialLon={city.center.lon}
@@ -110,7 +111,7 @@ const ItemsList = ({
       <div className="charts-container">
         <ContributorsChart
           data={contributors}
-          title={`Contributeurs sur OpenStreetMap`}
+          title={"Contributeurs sur OpenStreetMap"}
           dataType={listDefinition.name}
         />
         <EvolutionChart

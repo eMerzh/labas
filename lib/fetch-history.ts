@@ -1,4 +1,4 @@
-import { text } from "stream/consumers";
+import { text } from "node:stream/consumers";
 import { ResultItem } from "./fetch-overpass";
 const { Client, Pool } = require("pg");
 

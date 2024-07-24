@@ -1,15 +1,15 @@
-import { Chart } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   LineController,
   LineElement,
-  PointElement,
   LinearScale,
-  Title,
-  Tooltip,
+  PointElement,
   TimeScale,
   TimeSeriesScale,
+  Title,
+  Tooltip,
 } from "chart.js";
+import { Chart } from "react-chartjs-2";
 import "chartjs-adapter-date-fns";
 
 ChartJS.register(

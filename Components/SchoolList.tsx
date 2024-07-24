@@ -17,7 +17,7 @@ const ISCED_LEVELS = {
 };
 
 function getLevel(item: ResultItem) {
-  const levels = item.tags["school"] || item.tags["isced:level"];
+  const levels = item.tags.school || item.tags["isced:level"];
   if (!levels) return;
 
   return levels.split(";").map((level) => (
@@ -32,7 +32,7 @@ function SchoolList({ items }) {
     <table className="table-fill">
       <thead>
         <tr>
-          <th></th>
+          <th />
           <th>Nom</th>
           <th>Adresse</th>
           <th>CP</th>
@@ -54,7 +54,6 @@ function SchoolList({ items }) {
                     <a
                       href={`http://www.enseignement.be/index.php?page=24797&etab_id=${mainFase}`}
                       className="text-muted"
-
                     >
                       Fase: {item.tags["ref:fase"]}
                     </a>

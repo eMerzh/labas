@@ -3,12 +3,12 @@ import { Fragment } from "react";
 import { ResultItem } from "../lib/fetch-overpass";
 
 function getHostname(url: string): string {
-  let domain = new URL(url);
+  const domain = new URL(url);
   return domain.hostname;
 }
 
 export function getWebsiteCell(item: ResultItem) {
-  const website = item.tags["website"];
+  const website = item.tags.website;
   if (!website) return null;
   return (
     <a href={website} target="_blank" rel="noopener noreferrer">
@@ -47,11 +47,11 @@ export function getCityCell(item: ResultItem) {
 }
 
 export function getOpeningCell(item: ResultItem) {
-  if (!item.tags["opening_hours"]) return null;
+  if (!item.tags.opening_hours) return null;
   try {
-    const parsed = new opening_hours(item.tags["opening_hours"], {
-      lat: parseInt(item.lat, 10),
-      lon: parseInt(item.lon, 10),
+    const parsed = new opening_hours(item.tags.opening_hours, {
+      lat: Number.parseInt(item.lat, 10),
+      lon: Number.parseInt(item.lon, 10),
       address: { country_code: "be", state: "" },
     });
     const parsedString = parsed.getStateString();
@@ -77,7 +77,7 @@ function GenericList({ items, withOpening = false }: GenericProps) {
     <table className="table-fill">
       <thead>
         <tr>
-          <th></th>
+          <th />
           <th>Nom</th>
           <th>Adresse</th>
           <th>CP</th>

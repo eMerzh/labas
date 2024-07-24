@@ -8,13 +8,13 @@ import {
 } from "./GenericList";
 
 function getCuisineCell(item: ResultItem) {
-  const cuisines = item.tags["cuisine"];
+  const cuisines = item.tags.cuisine;
   if (!cuisines) return null;
-  return  cuisines.split(";").map((cuisine) => (
+  return cuisines.split(";").map((cuisine) => (
     <span key="cuisine" className="tag">
       {cuisine}
     </span>
-  ))
+  ));
 }
 
 function RestaurantList({ items }) {
@@ -22,7 +22,7 @@ function RestaurantList({ items }) {
     <table className="table-fill">
       <thead>
         <tr>
-          <th></th>
+          <th />
           <th>Nom</th>
           <th>Adresse</th>
           <th>CP</th>

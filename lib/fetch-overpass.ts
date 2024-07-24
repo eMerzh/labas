@@ -45,14 +45,12 @@ export async function query(query: string): Promise<[ResultItem]> {
     );
     out meta center;`;
 
-  const url =
-    "https://overpass-api.de/api/interpreter?" +
-    new URLSearchParams({ data: wrappedQuery }).toString();
+  const url = `https://overpass-api.de/api/interpreter?${new URLSearchParams({ data: wrappedQuery }).toString()}`;
   console.log("Fetching ", query);
   const res = await fetchPlus(url, fetchOpts);
   const data = await res.json();
 
-  return data.elements.filter((e) => e.type != "area").map(processResult);
+  return data.elements.filter((e) => e.type !== "area").map(processResult);
 }
 
 function processResult(el): ResultItem {

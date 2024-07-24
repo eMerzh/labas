@@ -1,14 +1,14 @@
-import { Chart } from "react-chartjs-2";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  DoughnutController,
   ArcElement,
+  CategoryScale,
+  Chart as ChartJS,
+  DoughnutController,
+  Legend,
   LinearScale,
   Title,
   Tooltip,
-  Legend,
 } from "chart.js";
+import { Chart } from "react-chartjs-2";
 import "chartjs-adapter-date-fns";
 
 ChartJS.register(

@@ -9,7 +9,12 @@ interface MapProps {
   initialLon: number;
   outerBox: [number, number, number, number];
 }
-const Map = ({ items, initialLat, initialLon, outerBox }: MapProps) => {
+const InteractiveMap = ({
+  items,
+  initialLat,
+  initialLon,
+  outerBox,
+}: MapProps) => {
   const mapContainer = useRef(null);
   const mapRef = useRef<maplibregl.Map>();
   const [lng] = useState<number>(initialLon);
@@ -22,7 +27,8 @@ const Map = ({ items, initialLat, initialLon, outerBox }: MapProps) => {
     }
     const map = new maplibregl.Map({
       container: mapContainer.current,
-      style: `https://api.maptiler.com/maps/bright/style.json?key=UVAKtN0Z84SNZiFO1wFP`,
+      style:
+        "https://api.maptiler.com/maps/bright/style.json?key=UVAKtN0Z84SNZiFO1wFP",
       center: [lng, lat],
       zoom: zoom,
     });
@@ -38,7 +44,7 @@ const Map = ({ items, initialLat, initialLon, outerBox }: MapProps) => {
       );
 
       new maplibregl.Marker({ color: "#FF0000" })
-        .setLngLat([parseFloat(item.lon), parseFloat(item.lat)])
+        .setLngLat([Number.parseFloat(item.lon), Number.parseFloat(item.lat)])
         .setPopup(popup)
         .addTo(map);
     });
@@ -51,4 +57,4 @@ const Map = ({ items, initialLat, initialLon, outerBox }: MapProps) => {
   );
 };
 
-export default Map;
+export default InteractiveMap;
