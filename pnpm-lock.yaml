@@ -9,31 +9,31 @@ importers:
   .:
     dependencies:
       chart.js:
-        specifier: ^4.4.3
+        specifier: 4.4.3
         version: 4.4.3
       chartjs-adapter-date-fns:
-        specifier: ^3.0.0
+        specifier: 3.0.0
         version: 3.0.0(chart.js@4.4.3)(date-fns@3.6.0)
       date-fns:
         specifier: 3.6.0
         version: 3.6.0
       maplibre-gl:
-        specifier: ^4.5.0
+        specifier: 4.5.0
         version: 4.5.0
       next:
         specifier: 14.2.32
         version: 14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       pg:
-        specifier: ^8.12.0
+        specifier: 8.12.0
         version: 8.12.0
       posthog-js:
-        specifier: ^1.149.1
+        specifier: 1.149.1
         version: 1.149.1
       react:
         specifier: 18.3.1
         version: 18.3.1
       react-chartjs-2:
-        specifier: ^5.2.0
+        specifier: 5.2.0
         version: 5.2.0(chart.js@4.4.3)(react@18.3.1)
       react-dom:
         specifier: 18.3.1
@@ -52,7 +52,7 @@ importers:
         specifier: 18.3.7
         version: 18.3.7(@types/react@18.3.24)
       opening_hours:
-        specifier: ^3.8.0
+        specifier: 3.8.0
         version: 3.8.0
       typescript:
         specifier: 5.5.3
