@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       chart.js:
-        specifier: 4.4.3
-        version: 4.4.3
+        specifier: 4.5.0
+        version: 4.5.0
       chartjs-adapter-date-fns:
         specifier: 3.0.0
-        version: 3.0.0(chart.js@4.4.3)(date-fns@4.1.0)
+        version: 3.0.0(chart.js@4.5.0)(date-fns@4.1.0)
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -34,7 +34,7 @@ importers:
         version: 18.3.1
       react-chartjs-2:
         specifier: 5.2.0
-        version: 5.2.0(chart.js@4.4.3)(react@18.3.1)
+        version: 5.2.0(chart.js@4.5.0)(react@18.3.1)
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
@@ -253,8 +253,8 @@ packages:
   caniuse-lite@1.0.30001739:
     resolution: {integrity: sha512-y+j60d6ulelrNSwpPyrHdl+9mJnQzHBr08xm48Qno0nSk4h3Qojh+ziv2qE6rXf4k3tadF4o1J/1tAbVm1NtnA==}
 
-  chart.js@4.4.3:
-    resolution: {integrity: sha512-qK1gkGSRYcJzqrrzdR6a+I0vQ4/R+SoODXyAjscQ/4mzuNzySaMCd+hyVxitSY1+L2fjPD1Gbn+ibNqRmwQeLw==}
+  chart.js@4.5.0:
+    resolution: {integrity: sha512-aYeC/jDgSEx8SHWZvANYMioYMZ2KX02W6f6uVfyteuCGcadDLcYVHdfdygsTQkQ4TKn5lghoojAsPj5pu0SnvQ==}
     engines: {pnpm: '>=8'}
 
   chartjs-adapter-date-fns@3.0.0:
@@ -672,13 +672,13 @@ snapshots:
 
   caniuse-lite@1.0.30001739: {}
 
-  chart.js@4.4.3:
+  chart.js@4.5.0:
     dependencies:
       '@kurkle/color': 0.3.2
 
-  chartjs-adapter-date-fns@3.0.0(chart.js@4.4.3)(date-fns@4.1.0):
+  chartjs-adapter-date-fns@3.0.0(chart.js@4.5.0)(date-fns@4.1.0):
     dependencies:
-      chart.js: 4.4.3
+      chart.js: 4.5.0
       date-fns: 4.1.0
 
   client-only@0.0.1: {}
@@ -854,9 +854,9 @@ snapshots:
 
   quickselect@3.0.0: {}
 
-  react-chartjs-2@5.2.0(chart.js@4.4.3)(react@18.3.1):
+  react-chartjs-2@5.2.0(chart.js@4.5.0)(react@18.3.1):
     dependencies:
-      chart.js: 4.4.3
+      chart.js: 4.5.0
       react: 18.3.1
 
   react-dom@18.3.1(react@18.3.1):
