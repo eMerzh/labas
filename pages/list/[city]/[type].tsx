@@ -1,25 +1,23 @@
-import { GetServerSidePropsContext, InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import GenericList from "../../../Components/GenericList";
-import InteractiveMap from "../../../Components/InteractiveMap";
-import RestaurantList from "../../../Components/RestaurantList";
-import SchoolList from "../../../Components/SchoolList";
-import { ResultItem, query } from "../../../lib/fetch-overpass";
-import { AllLists, PageType } from "../../../lib/type-list";
-
 import { ReactNode } from "react";
 import ContributorsChart from "../../../Components/ContributorsChart";
 import EvolutionChart from "../../../Components/EvolutionChart";
+import GenericList from "../../../Components/GenericList";
 import Meta from "../../../Components/Head";
+import InteractiveMap from "../../../Components/InteractiveMap";
+import RestaurantList from "../../../Components/RestaurantList";
+import SchoolList from "../../../Components/SchoolList";
 import {
-  TimeCountResult,
-  UserCountResut,
   getContributors,
   getCountHistory,
   getCurrentItems,
   saveResults,
+  TimeCountResult,
+  UserCountResut,
 } from "../../../lib/fetch-history";
-import { CURRENT_CITY, CityItem } from "../../../lib/type-city";
+import { query, ResultItem } from "../../../lib/fetch-overpass";
+import { CityItem, CURRENT_CITY } from "../../../lib/type-city";
+import { AllLists, PageType } from "../../../lib/type-list";
 
 export const getStaticProps = async (context) => {
   const menuItem = AllLists.find((l) => l.slug === context.params?.type);
