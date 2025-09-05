@@ -10,6 +10,8 @@ import {
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
 import "chartjs-adapter-date-fns";
+import { FC } from "react";
+import { UserCountResut } from "../lib/fetch-history";
 
 ChartJS.register(
   CategoryScale,
@@ -21,7 +23,11 @@ ChartJS.register(
   Legend,
 );
 
-const ContributorsChart = ({ data, title }) => {
+interface Props {
+  data: UserCountResut[];
+  title: string;
+}
+const ContributorsChart: FC<Props> = ({ data, title }) => {
   const config: any = {
     responsive: true,
     plugins: {

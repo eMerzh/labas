@@ -71,7 +71,7 @@ const ItemsList = ({
   items: ResultItem[];
   listDefinition: PageType;
   history: TimeCountResult;
-  contributors: UserCountResut;
+  contributors: UserCountResut[];
 }) => {
   let innerTable: ReactNode;
   if (listDefinition.component === "School") {
@@ -110,7 +110,6 @@ const ItemsList = ({
         <ContributorsChart
           data={contributors}
           title={"Contributeurs sur OpenStreetMap"}
-          dataType={listDefinition.name}
         />
         <EvolutionChart
           data={history}
