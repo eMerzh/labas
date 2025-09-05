@@ -37,7 +37,7 @@ const InteractiveMap = ({
     map.addControl(new maplibregl.NavigationControl({}), "top-right");
     // restict to bounding box
     map.setMaxBounds(outerBox);
-    items.map((item) => {
+    items.forEach((item) => {
       // create the popup
       const popup = new maplibregl.Popup({ offset: 25 }).setHTML(
         `<h2>${item.tags.name}</h2>`,

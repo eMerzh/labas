@@ -21,7 +21,7 @@ ChartJS.register(
   Legend,
 );
 
-const ContributorsChart = ({ data, title, dataType }) => {
+const ContributorsChart = ({ data, title }) => {
   const config: any = {
     responsive: true,
     plugins: {

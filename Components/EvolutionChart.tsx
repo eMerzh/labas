@@ -1,8 +1,8 @@
 import {
   Chart as ChartJS,
+  LinearScale,
   LineController,
   LineElement,
-  LinearScale,
   PointElement,
   TimeScale,
   TimeSeriesScale,
