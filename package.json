@@ -12,7 +12,7 @@
   "dependencies": {
     "chart.js": "4.4.3",
     "chartjs-adapter-date-fns": "3.0.0",
-    "date-fns": "3.6.0",
+    "date-fns": "4.1.0",
     "maplibre-gl": "4.7.1",
     "next": "14.2.32",
     "pg": "8.16.3",
