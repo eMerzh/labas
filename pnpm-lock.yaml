@@ -45,6 +45,9 @@ importers:
       '@types/node':
         specifier: 20.19.13
         version: 20.19.13
+      '@types/pg':
+        specifier: ^8.15.5
+        version: 8.15.5
       '@types/react':
         specifier: 18.3.24
         version: 18.3.24
@@ -234,6 +237,9 @@ packages:
 
   '@types/pbf@3.0.5':
     resolution: {integrity: sha512-j3pOPiEcWZ34R6a6mN07mUkM4o4Lwf6hPNt8eilOeZhTFbxFXmKhvXl9Y28jotFPaI1bpPDJsbCprUoNke6OrA==}
+
+  '@types/pg@8.15.5':
+    resolution: {integrity: sha512-LF7lF6zWEKxuT3/OR8wAZGzkg4ENGXFNyiV/JeOt9z5B+0ZVwbql9McqX5c/WStFq1GaGso7H1AzP/qSzmlCKQ==}
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -744,6 +750,12 @@ snapshots:
       undici-types: 6.21.0
 
   '@types/pbf@3.0.5': {}
+
+  '@types/pg@8.15.5':
+    dependencies:
+      '@types/node': 20.19.13
+      pg-protocol: 1.10.3
+      pg-types: 2.2.0
 
   '@types/prop-types@15.7.12': {}
 
