@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.2",
-    "@types/node": "20.14.11",
+    "@types/node": "20.19.13",
     "@types/react": "18.3.24",
     "@types/react-dom": "18.3.7",
     "opening_hours": "3.8.0",
