@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome ci"
+    "lint": "biome ci",
+    "lint:type": "tsc --noEmit"
   },
   "dependencies": {
     "chart.js": "4.4.3",

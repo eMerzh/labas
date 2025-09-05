@@ -38,3 +38,5 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Check
         run: pnpm run lint
+      - name: Type
+        run: pnpm run lint:type
