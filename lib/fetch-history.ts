@@ -1,6 +1,5 @@
+import { Pool } from "pg";
 import { ResultItem } from "./fetch-overpass";
-
-const { Pool } = require("pg");
 
 const pool = new Pool();
 
