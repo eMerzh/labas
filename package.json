@@ -22,7 +22,7 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.2",
+    "@biomejs/biome": "2.2.3",
     "@types/node": "22.18.1",
     "@types/pg": "^8.15.5",
     "@types/react": "18.3.24",
