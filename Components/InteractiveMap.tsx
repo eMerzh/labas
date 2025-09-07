@@ -16,7 +16,7 @@ const InteractiveMap = ({
   outerBox,
 }: MapProps) => {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<maplibregl.Map>();
+  const mapRef = useRef<maplibregl.Map>(null);
   const [lng] = useState<number>(initialLon);
   const [lat] = useState<number>(initialLat);
   const [zoom] = useState(13);
