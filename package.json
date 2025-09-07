@@ -27,7 +27,7 @@
     "@types/pg": "^8.15.5",
     "@types/react": "18.3.24",
     "@types/react-dom": "18.3.7",
-    "opening_hours": "3.8.0",
+    "opening_hours": "3.9.0",
     "typescript": "5.9.2"
   }
 }

@@ -55,8 +55,8 @@ importers:
         specifier: 18.3.7
         version: 18.3.7(@types/react@18.3.24)
       opening_hours:
-        specifier: 3.8.0
-        version: 3.8.0
+        specifier: 3.9.0
+        version: 3.9.0(typescript@5.9.2)
       typescript:
         specifier: 5.9.2
         version: 5.9.2
@@ -65,6 +65,10 @@ packages:
 
   '@babel/runtime@7.24.8':
     resolution: {integrity: sha512-5F7SDGs1T72ZczbRwbGO9lQi0NLjQxzl6i4lJxLxfW9U5UluCSyEJeniWvnhl3/euNiqQVbo8zruhsDfid0esA==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/runtime@7.28.4':
+    resolution: {integrity: sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ==}
     engines: {node: '>=6.9.0'}
 
   '@biomejs/biome@2.2.3':
@@ -294,11 +298,16 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  i18next-browser-languagedetector@6.1.8:
-    resolution: {integrity: sha512-Svm+MduCElO0Meqpj1kJAriTC6OhI41VhlT/A0UPjGoPZBhAHIaGE5EfsHlTpgdH09UVX7rcc72pSDDBeKSQQA==}
+  i18next-browser-languagedetector@8.2.0:
+    resolution: {integrity: sha512-P+3zEKLnOF0qmiesW383vsLdtQVyKtCNA9cjSoKCppTKPQVfKd2W8hbVo5ZhNJKDqeM7BOcvNoKJOjpHh4Js9g==}
 
-  i18next@21.10.0:
-    resolution: {integrity: sha512-YeuIBmFsGjUfO3qBmMOc0rQaun4mIpGKET5WDwvu8lU7gvwpcariZLNtL0Fzj+zazcHUrlXHiptcFhBMFaxzfg==}
+  i18next@24.2.3:
+    resolution: {integrity: sha512-lfbf80OzkocvX7nmZtu7nSTNbrTYR52sLWxPtlXX1zAhVw8WEnFk4puUkCR4B1dNQwbSpEHHHemcZu//7EcB7A==}
+    peerDependencies:
+      typescript: ^5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -346,9 +355,9 @@ packages:
       sass:
         optional: true
 
-  opening_hours@3.8.0:
-    resolution: {integrity: sha512-bRJroECQSe/itVcNmC3j9PPicxn/LBowdd1Hi+4Aa7hCswdt7w81WHfUwrEMbtk1BBYmGJEbSepl8oYYPviSuA==}
-    engines: {node: '>=10.0.0'}
+  opening_hours@3.9.0:
+    resolution: {integrity: sha512-ns8FNny8a3pzOznl9w3AdtleEeIKqCIWhVDfiprNRWuAa1biKkkluP3wRuBMFwroDC6jIjWlVLE+zIa/ONWd0w==}
+    engines: {node: '>=12'}
 
   pbf@4.0.1:
     resolution: {integrity: sha512-SuLdBvS42z33m8ejRbInMapQe8n0D3vN/Xd5fmWM3tufNgRQFBpaW2YVJxQZV4iPNqb0vEFvssMEo5w9c6BTIA==}
@@ -518,6 +527,8 @@ snapshots:
   '@babel/runtime@7.24.8':
     dependencies:
       regenerator-runtime: 0.14.1
+
+  '@babel/runtime@7.28.4': {}
 
   '@biomejs/biome@2.2.3':
     optionalDependencies:
@@ -701,13 +712,15 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  i18next-browser-languagedetector@6.1.8:
+  i18next-browser-languagedetector@8.2.0:
     dependencies:
       '@babel/runtime': 7.24.8
 
-  i18next@21.10.0:
+  i18next@24.2.3(typescript@5.9.2):
     dependencies:
-      '@babel/runtime': 7.24.8
+      '@babel/runtime': 7.28.4
+    optionalDependencies:
+      typescript: 5.9.2
 
   js-tokens@4.0.0: {}
 
@@ -775,11 +788,13 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  opening_hours@3.8.0:
+  opening_hours@3.9.0(typescript@5.9.2):
     dependencies:
-      i18next: 21.10.0
-      i18next-browser-languagedetector: 6.1.8
+      i18next: 24.2.3(typescript@5.9.2)
+      i18next-browser-languagedetector: 8.2.0
       suncalc: 1.9.0
+    transitivePeerDependencies:
+      - typescript
 
   pbf@4.0.1:
     dependencies:
