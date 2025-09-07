@@ -93,7 +93,10 @@ main > div {
   width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
-  height: calc(100vh - 77px); /* calculate height of the screen minus the heading */
+  height: calc(
+    100vh -
+    77px
+  ); /* calculate height of the screen minus the heading */
 }
 
 .map {
