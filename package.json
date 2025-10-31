@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
-    "@types/node": "22.18.12",
+    "@types/node": "22.18.13",
     "@types/pg": "^8.15.5",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
