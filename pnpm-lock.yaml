@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       chart.js:
-        specifier: 4.5.0
-        version: 4.5.0
+        specifier: 4.5.1
+        version: 4.5.1
       chartjs-adapter-date-fns:
         specifier: 3.0.0
-        version: 3.0.0(chart.js@4.5.0)(date-fns@4.1.0)
+        version: 3.0.0(chart.js@4.5.1)(date-fns@4.1.0)
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -34,7 +34,7 @@ importers:
         version: 19.2.0
       react-chartjs-2:
         specifier: 5.3.0
-        version: 5.3.0(chart.js@4.5.0)(react@19.2.0)
+        version: 5.3.0(chart.js@4.5.1)(react@19.2.0)
       react-dom:
         specifier: 19.2.0
         version: 19.2.0(react@19.2.0)
@@ -254,8 +254,8 @@ packages:
   caniuse-lite@1.0.30001739:
     resolution: {integrity: sha512-y+j60d6ulelrNSwpPyrHdl+9mJnQzHBr08xm48Qno0nSk4h3Qojh+ziv2qE6rXf4k3tadF4o1J/1tAbVm1NtnA==}
 
-  chart.js@4.5.0:
-    resolution: {integrity: sha512-aYeC/jDgSEx8SHWZvANYMioYMZ2KX02W6f6uVfyteuCGcadDLcYVHdfdygsTQkQ4TKn5lghoojAsPj5pu0SnvQ==}
+  chart.js@4.5.1:
+    resolution: {integrity: sha512-GIjfiT9dbmHRiYi6Nl2yFCq7kkwdkp1W/lp2J99rX0yo9tgJGn3lKQATztIjb5tVtevcBtIdICNWqlq5+E8/Pw==}
     engines: {pnpm: '>=8'}
 
   chartjs-adapter-date-fns@3.0.0:
@@ -330,6 +330,7 @@ packages:
   next@14.2.33:
     resolution: {integrity: sha512-GiKHLsD00t4ACm1p00VgrI0rUFAC9cRDGReKyERlM57aeEZkOQGcZTpIbsGn0b562FTPJWmYfKwplfO9EaT6ng==}
     engines: {node: '>=18.17.0'}
+    deprecated: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/security-update-2025-12-11 for more details.
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
@@ -670,13 +671,13 @@ snapshots:
 
   caniuse-lite@1.0.30001739: {}
 
-  chart.js@4.5.0:
+  chart.js@4.5.1:
     dependencies:
       '@kurkle/color': 0.3.2
 
-  chartjs-adapter-date-fns@3.0.0(chart.js@4.5.0)(date-fns@4.1.0):
+  chartjs-adapter-date-fns@3.0.0(chart.js@4.5.1)(date-fns@4.1.0):
     dependencies:
-      chart.js: 4.5.0
+      chart.js: 4.5.1
       date-fns: 4.1.0
 
   client-only@0.0.1: {}
@@ -850,9 +851,9 @@ snapshots:
 
   quickselect@3.0.0: {}
 
-  react-chartjs-2@5.3.0(chart.js@4.5.0)(react@19.2.0):
+  react-chartjs-2@5.3.0(chart.js@4.5.1)(react@19.2.0):
     dependencies:
-      chart.js: 4.5.0
+      chart.js: 4.5.1
       react: 19.2.0
 
   react-dom@19.2.0(react@19.2.0):
