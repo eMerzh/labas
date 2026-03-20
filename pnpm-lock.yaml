@@ -43,8 +43,8 @@ importers:
         specifier: 2.4.8
         version: 2.4.8
       '@types/node':
-        specifier: 22.19.3
-        version: 22.19.3
+        specifier: 22.19.15
+        version: 22.19.15
       '@types/pg':
         specifier: ^8.15.5
         version: 8.16.0
@@ -238,8 +238,8 @@ packages:
   '@types/geojson@7946.0.16':
     resolution: {integrity: sha512-6C8nqWur3j98U6+lXDfTUWIfgvZU+EumvpHKcYjujKH7woYyLj2sUmff0tRhrqM7BohUw7Pz3ZB1jj2gW9Fvmg==}
 
-  '@types/node@22.19.3':
-    resolution: {integrity: sha512-1N9SBnWYOJTrNZCdh/yJE+t910Y128BoyY+zBLWhL3r0TYzlTmFdXrPwHL9DyFZmlEXNQQolTZh3KHV31QDhyA==}
+  '@types/node@22.19.15':
+    resolution: {integrity: sha512-F0R/h2+dsy5wJAUe3tAU6oqa2qbWY5TpNfL/RGmo1y38hiyO1w3x2jPtt76wmuaJI4DQnOBu21cNXQ2STIUUWg==}
 
   '@types/pg@8.16.0':
     resolution: {integrity: sha512-RmhMd/wD+CF8Dfo+cVIy3RR5cl8CyfXQ0tGgW6XBL8L4LM/UTEbNXYRbLwU6w+CgrKBNbrQWt4FUtTfaU5jSYQ==}
@@ -650,13 +650,13 @@ snapshots:
 
   '@types/geojson@7946.0.16': {}
 
-  '@types/node@22.19.3':
+  '@types/node@22.19.15':
     dependencies:
       undici-types: 6.21.0
 
   '@types/pg@8.16.0':
     dependencies:
-      '@types/node': 22.19.3
+      '@types/node': 22.19.15
       pg-protocol: 1.10.3
       pg-types: 2.2.0
 
